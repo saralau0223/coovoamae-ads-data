@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
-"""Ad optimization action logger. Usage: python3 log_action.py <type> <target> <detail>"""
+"""广告优化操作记录器"""
 import json, sys
 from datetime import datetime
 from pathlib import Path
-
 ACTIONS_DIR = Path("/root/coovoamae-ads-data/data/actions")
-
 def log_action(atype, target, detail):
     today = datetime.utcnow().strftime("%Y-%m-%d")
     ACTIONS_DIR.mkdir(parents=True, exist_ok=True)
@@ -19,7 +17,6 @@ def log_action(atype, target, detail):
     with open(lf,'w') as f:
         json.dump({"date":today,"count":len(actions),"actions":actions}, f, indent=2, ensure_ascii=False)
     print(f"Logged: {atype} -> {target}")
-
 if __name__ == "__main__":
     if len(sys.argv)<4: print("Usage: log_action.py <type> <target> <detail>"); sys.exit(1)
     log_action(sys.argv[1], sys.argv[2], sys.argv[3])
