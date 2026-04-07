@@ -39,31 +39,39 @@ def request_report(token, rtype, date_str, creds):
     configs = {
         "search_terms": {"reportTypeId":"spSearchTerm","groupBy":["searchTerm"],
             "columns":["date","campaignName","campaignId","adGroupName","adGroupId",
-                "keyword","keywordType","searchTerm","impressions","clicks","cost","purchases7d","sales7d","acos7d"]},
+                "keyword","keywordType","searchTerm","impressions","clicks",
+                "cost","purchases7d","sales7d","acos7d"]},
         "keywords": {"reportTypeId":"spTargeting","groupBy":["targeting"],
             "columns":["date","campaignName","campaignId","adGroupName","adGroupId",
-                "keywordId","keyword","matchType","impressions","clicks","cost","purchases7d","sales7d","acos7d","cpc","ctr"]},
+                "keywordId","keyword","matchType","impressions","clicks",
+                "cost","purchases7d","sales7d","acos7d","cpc","ctr"]},
         "campaigns": {"reportTypeId":"spCampaigns","groupBy":["campaign"],
             "columns":["date","campaignName","campaignId","campaignStatus",
-                "campaignBudgetAmount","impressions","clicks","cost","purchases7d","sales7d","acos7d","roas7d"]},
+                "campaignBudgetAmount","impressions","clicks","cost",
+                "purchases7d","sales7d","acos7d","roas7d"]},
     }
     c = configs[rtype]
     body = json.dumps({"reportDate":date_str,"configuration":{
-        "adProduct":"SPONSORED_PRODUCTS","groupBy":c["groupBy"],"columns":c["columns"],
-        "reportTypeId":c["reportTypeId"],"timeUnit":"DAILY","format":"GZIP_JSON"}}).encode()
-    req = urllib.request.Request("https://advertising-api.amazon.com/reporting/reports", data=body, headers={
-        "Content-Type":"application/vnd.createasyncreportrequest.v3+json",
-        "Authorization":f"Bearer {token}",
-        "Amazon-Advertising-API-ClientId":creds["client_id"],
-        "Amazon-Advertising-API-Scope":ADS_PROFILE_ID})
+        "adProduct":"SPONSORED_PRODUCTS","groupBy":c["groupBy"],
+        "columns":c["columns"],"reportTypeId":c["reportTypeId"],
+        "timeUnit":"DAILY","format":"GZIP_JSON"}}).encode()
+    req = urllib.request.Request("https://advertising-api.amazon.com/reporting/reports",
+        data=body, headers={
+            "Content-Type":"application/vnd.createasyncreportrequest.v3+json",
+            "Authorization":f"Bearer {token}",
+            "Amazon-Advertising-API-ClientId":creds["client_id"],
+            "Amazon-Advertising-API-Scope":ADS_PROFILE_ID})
     with urllib.request.urlopen(req, timeout=30) as r:
         return json.loads(r.read()).get("reportId")
 
-def poll_download(token, rid, output, creds, max_wait=300):
-    headers = {"Authorization":f"Bearer {token}","Amazon-Advertising-API-ClientId":creds["client_id"],"Amazon-Advertising-API-Scope":ADS_PROFILE_ID}
+def poll_download(token, report_id, output, creds, max_wait=300):
+    headers = {"Authorization":f"Bearer {token}",
+        "Amazon-Advertising-API-ClientId":creds["client_id"],
+        "Amazon-Advertising-API-Scope":ADS_PROFILE_ID}
     start = time.time()
     while time.time()-start < max_wait:
-        req = urllib.request.Request(f"https://advertising-api.amazon.com/reporting/reports/{rid}", headers=headers)
+        req = urllib.request.Request(
+            f"https://advertising-api.amazon.com/reporting/reports/{report_id}", headers=headers)
         with urllib.request.urlopen(req, timeout=30) as r:
             result = json.loads(r.read())
         st = result.get("status")
@@ -75,9 +83,9 @@ def poll_download(token, rid, output, creds, max_wait=300):
                 try: data = json.loads(gzip.decompress(raw))
                 except: data = json.loads(raw)
                 if data:
-                    with open(output, "w", newline="") as f:
-                        w = csv.DictWriter(f, fieldnames=list(data[0].keys()))
-                        w.writeheader(); w.writerows(data)
+                    keys = list(data[0].keys())
+                    with open(output,'w',newline='') as f:
+                        w = csv.DictWriter(f, fieldnames=keys); w.writeheader(); w.writerows(data)
                     return len(data)
             return 0
         elif st == "FAILURE": return -1
@@ -85,7 +93,8 @@ def poll_download(token, rid, output, creds, max_wait=300):
     return -1
 
 def gen_summary(date_str):
-    daily = DATA_DIR/"daily"/date_str; sumdir = DATA_DIR/"summary"; sumdir.mkdir(parents=True, exist_ok=True)
+    daily = DATA_DIR/"daily"/date_str
+    sumdir = DATA_DIR/"summary"; sumdir.mkdir(parents=True, exist_ok=True)
     s = {"date":date_str,"generated_at":datetime.utcnow().isoformat()+"Z",
          "campaigns":{},"top_search_terms":{"profitable":[],"wasteful":[]},
          "totals":{"spend":0,"sales":0,"orders":0,"impressions":0,"clicks":0}}
@@ -93,75 +102,83 @@ def gen_summary(date_str):
     if cf.exists():
         with open(cf) as f:
             for r in csv.DictReader(f):
-                sp=float(r.get("cost",0));sl=float(r.get("sales7d",0));od=int(float(r.get("purchases7d",0)))
-                imp=int(float(r.get("impressions",0)));cl=int(float(r.get("clicks",0)))
-                s["campaigns"][r.get("campaignName","")]={"spend":round(sp,2),"sales":round(sl,2),"orders":od,
-                    "acos":round(sp/sl*100,1) if sl>0 else 999,"status":r.get("campaignStatus","")}
+                sp=float(r.get("cost",0)); sl=float(r.get("sales7d",0))
+                od=int(float(r.get("purchases7d",0)))
+                imp=int(float(r.get("impressions",0))); cl=int(float(r.get("clicks",0)))
+                s["campaigns"][r.get("campaignName","")] = {
+                    "spend":round(sp,2),"sales":round(sl,2),"orders":od,
+                    "acos":round(sp/sl*100,1) if sl>0 else 999,
+                    "status":r.get("campaignStatus","")}
                 for k,v in [("spend",sp),("sales",sl),("orders",od),("impressions",imp),("clicks",cl)]:
-                    s["totals"][k]+=v
-    t=s["totals"];t["spend"]=round(t["spend"],2);t["sales"]=round(t["sales"],2)
+                    s["totals"][k] += v
+    t = s["totals"]; t["spend"]=round(t["spend"],2); t["sales"]=round(t["sales"],2)
     t["acos"]=round(t["spend"]/t["sales"]*100,1) if t["sales"]>0 else 999
     t["ctr"]=round(t["clicks"]/t["impressions"]*100,2) if t["impressions"]>0 else 0
     t["cpc"]=round(t["spend"]/t["clicks"],2) if t["clicks"]>0 else 0
     stf = daily/"search_terms.csv"
     if stf.exists():
-        terms=[]
+        terms = []
         with open(stf) as f:
             for r in csv.DictReader(f):
-                sp=float(r.get("cost",0));sl=float(r.get("sales7d",0));od=int(float(r.get("purchases7d",0)))
-                ac=(sp/sl*100) if sl>0 else 999
+                sp=float(r.get("cost",0)); sl=float(r.get("sales7d",0))
+                od=int(float(r.get("purchases7d",0))); ac=(sp/sl*100) if sl>0 else 999
                 terms.append({"term":r.get("searchTerm",""),"campaign":r.get("campaignName",""),
-                    "spend":round(sp,2),"sales":round(sl,2),"orders":od,"acos":round(ac,1),"clicks":int(float(r.get("clicks",0)))})
-        s["top_search_terms"]["profitable"]=sorted([x for x in terms if x["sales"]>0 and x["acos"]<=25],key=lambda x:x["sales"],reverse=True)[:20]
-        s["top_search_terms"]["wasteful"]=sorted([x for x in terms if (x["spend"]>1 and x["orders"]==0) or x["acos"]>50],key=lambda x:x["spend"],reverse=True)[:20]
-        s["search_term_count"]=len(terms)
-    for name in ["latest.json",f"{date_str}.json"]:
-        with open(sumdir/name,"w") as f: json.dump(s,f,indent=2,ensure_ascii=False)
+                    "spend":round(sp,2),"sales":round(sl,2),"orders":od,"acos":round(ac,1),
+                    "clicks":int(float(r.get("clicks",0)))})
+        s["top_search_terms"]["profitable"] = sorted(
+            [x for x in terms if x["sales"]>0 and x["acos"]<=25], key=lambda x:x["sales"], reverse=True)[:20]
+        s["top_search_terms"]["wasteful"] = sorted(
+            [x for x in terms if (x["spend"]>1 and x["orders"]==0) or x["acos"]>50],
+            key=lambda x:x["spend"], reverse=True)[:20]
+        s["search_term_count"] = len(terms)
+    for name in ["latest.json", f"{date_str}.json"]:
+        with open(sumdir/name,'w') as f: json.dump(s, f, indent=2, ensure_ascii=False)
     return s
 
 def gen_trend():
-    sumdir=DATA_DIR/"summary"; days=[]
+    sumdir = DATA_DIR/"summary"; days = []
     for i in range(7):
-        d=(datetime.utcnow()-timedelta(days=i+1)).strftime("%Y-%m-%d")
-        fp=sumdir/f"{d}.json"
+        d = (datetime.utcnow()-timedelta(days=i+1)).strftime("%Y-%m-%d")
+        fp = sumdir/f"{d}.json"
         if fp.exists():
-            with open(fp) as f: dd=json.load(f)
-            days.append({"date":d,**{k:dd["totals"][k] for k in ["spend","sales","orders","acos"]}})
+            with open(fp) as f: dd = json.load(f)
+            days.append({"date":d, **{k:dd["totals"][k] for k in ["spend","sales","orders","acos"]}})
     days.reverse()
-    with open(sumdir/"weekly_trend.json","w") as f:
-        json.dump({"updated":datetime.utcnow().isoformat()+"Z","days":days},f,indent=2)
+    with open(sumdir/"weekly_trend.json",'w') as f:
+        json.dump({"updated":datetime.utcnow().isoformat()+"Z","days":days}, f, indent=2)
 
 def git_push(date_str):
     os.chdir(REPO_DIR)
-    subprocess.run(["git","add","-A"],check=True)
-    if subprocess.run(["git","diff","--cached","--quiet"]).returncode==0:
-        print("  No changes"); return
-    subprocess.run(["git","commit","-m",f"Daily ads data {date_str}"],check=True)
-    subprocess.run(["git","push"],check=True)
+    subprocess.run(["git","add","-A"], check=True)
+    r = subprocess.run(["git","diff","--cached","--quiet"])
+    if r.returncode == 0: print("  No changes"); return
+    subprocess.run(["git","commit","-m",f"Daily ads data {date_str}"], check=True)
+    subprocess.run(["git","push"], check=True)
     print(f"  Pushed: {date_str}")
 
 def main():
-    target=(datetime.utcnow()-timedelta(days=1)).strftime("%Y-%m-%d")
-    if len(sys.argv)>1: target=sys.argv[1]
+    target = (datetime.utcnow()-timedelta(days=1)).strftime("%Y-%m-%d")
+    if len(sys.argv)>1: target = sys.argv[1]
     print(f"=== COOVOAMAE Ads Pull: {target} ===")
-    daily=DATA_DIR/"daily"/target; daily.mkdir(parents=True,exist_ok=True)
-    creds=load_creds()
+    daily = DATA_DIR/"daily"/target; daily.mkdir(parents=True, exist_ok=True)
+    creds = load_creds()
     if not creds.get("refresh_token"):
-        print("No refresh_token. Check ~/.amazon_mcp_config.json"); sys.exit(1)
-    print("Getting token..."); token=get_token(creds)
-    rids={}
+        print("ERROR: No refresh_token. Check ~/.amazon_mcp_config.json"); sys.exit(1)
+    print("Getting token..."); token = get_token(creds)
+    rids = {}
     for rt in ["search_terms","keywords","campaigns"]:
         print(f"Requesting {rt}...")
-        rid=request_report(token,rt,target,creds)
-        if rid: rids[rt]=rid; print(f"  ID: {rid}")
-        else: print(f"  Failed")
-    for rt,rid in rids.items():
-        out=daily/f"{rt}.csv"; print(f"Downloading {rt}...")
-        n=poll_download(token,rid,out,creds); print(f"  {n} rows")
-    print("Generating summary..."); s=gen_summary(target)
-    print(f"  spend=${s[totals][spend]}, sales=${s[totals][sales]}, ACoS={s[totals][acos]}%")
-    print("Generating trend..."); gen_trend()
-    print("Pushing..."); git_push(target)
+        rid = request_report(token, rt, target, creds)
+        if rid: rids[rt] = rid; print(f"  ID: {rid}")
+        else: print(f"  WARN: Failed {rt}")
+    for rt, rid in rids.items():
+        out = daily/f"{rt}.csv"
+        print(f"Downloading {rt}..."); n = poll_download(token, rid, out, creds)
+        print(f"  {n} rows -> {out}")
+    print("Summary..."); s = gen_summary(target)
+    print(f"  spend=${s['totals']['spend']} sales=${s['totals']['sales']} ACoS={s['totals']['acos']}%")
+    print("Trend..."); gen_trend()
+    print("Git push..."); git_push(target)
     print("=== Done ===")
 
-if __name__=="__main__": main()
+if __name__ == "__main__": main()
