@@ -1,0 +1,56 @@
+{
+  "asin": "B0GWZSN32D",
+  "sku": "HEM-PINK",
+  "main_image": "unchanged",
+  "images": [
+    {
+      "slot": "other_product_image_locator_1",
+      "filename": "01_appearance_lifestyle.jpg",
+      "bytes": 905196,
+      "sha256": "202161df3702d75d7f0986a30c14d79a3abf814e69e3e0f716638c7df9933ac8",
+      "raw_url": "https://raw.githubusercontent.com/saralau0223/coovoamae-ads-data/main/listing-images/pink-eyemask-v1/01_appearance_lifestyle.jpg"
+    },
+    {
+      "slot": "other_product_image_locator_2",
+      "filename": "02_heat_settings_auto_off.jpg",
+      "bytes": 755866,
+      "sha256": "36caf6125684bd4bc3d3da3d3556e7f08d0f163f58c9005e200d11a0b3512ae0",
+      "raw_url": "https://raw.githubusercontent.com/saralau0223/coovoamae-ads-data/main/listing-images/pink-eyemask-v1/02_heat_settings_auto_off.jpg"
+    },
+    {
+      "slot": "other_product_image_locator_3",
+      "filename": "03_warm_compress_no_pressure.jpg",
+      "bytes": 860733,
+      "sha256": "36e7a84528b2f5e396bab32fcfb95fdac77a484ed082a5f1cf4691074ed7c710",
+      "raw_url": "https://raw.githubusercontent.com/saralau0223/coovoamae-ads-data/main/listing-images/pink-eyemask-v1/03_warm_compress_no_pressure.jpg"
+    },
+    {
+      "slot": "other_product_image_locator_4",
+      "filename": "04_heating_area_explained.jpg",
+      "bytes": 933841,
+      "sha256": "58a450a42dbd7898228bb26b932c9f35c52b6e3356578718fb27fcc2e3c1149d",
+      "raw_url": "https://raw.githubusercontent.com/saralau0223/coovoamae-ads-data/main/listing-images/pink-eyemask-v1/04_heating_area_explained.jpg"
+    },
+    {
+      "slot": "other_product_image_locator_5",
+      "filename": "05_cordless_usb_c.jpg",
+      "bytes": 1473389,
+      "sha256": "8d2c7a61ed9c2eb4c21a34f9b8f8517d85ea450d154d47b0d3c8ab780b949eec",
+      "raw_url": "https://raw.githubusercontent.com/saralau0223/coovoamae-ads-data/main/listing-images/pink-eyemask-v1/05_cordless_usb_c.jpg"
+    },
+    {
+      "slot": "other_product_image_locator_6",
+      "filename": "06_removable_silk_cover.jpg",
+      "bytes": 903741,
+      "sha256": "4f855b1409001f2c475b51404b1cc2880da0f8a41ab57e8fde61386f17ea35b2",
+      "raw_url": "https://raw.githubusercontent.com/saralau0223/coovoamae-ads-data/main/listing-images/pink-eyemask-v1/06_removable_silk_cover.jpg"
+    },
+    {
+      "slot": "other_product_image_locator_7",
+      "filename": "07_fsa_hsa_eligible.jpg",
+      "bytes": 764362,
+      "sha256": "bbd739cdfbb860af1f5fb551576e579adf909696c6276e68baac76257f2ea9a2",
+      "raw_url": "https://raw.githubusercontent.com/saralau0223/coovoamae-ads-data/main/listing-images/pink-eyemask-v1/07_fsa_hsa_eligible.jpg"
+    }
+  ]
+}
