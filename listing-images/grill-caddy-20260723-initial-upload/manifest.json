@@ -1,0 +1,81 @@
+{
+  "schema": "coovoamae_listing_image_cdn_manifest_v1",
+  "project_id": "coovoa-20260723-long-grill-caddy",
+  "created_at": "2026-07-23T16:51:07+08:00",
+  "repo": "saralau0223/coovoamae-ads-data",
+  "branch": "main",
+  "cdn_base": "https://cdn.jsdelivr.net/gh/saralau0223/coovoamae-ads-data@main/listing-images/grill-caddy-20260723-initial-upload",
+  "files": [
+    {
+      "slot": "MAIN",
+      "slot_key": "main_product_image_locator",
+      "filename": "01_MAIN_whitebg_with_carry_bag.png",
+      "source_path": "/root/.hermes/shared/product-assets/coovoa-20260723-long-grill-caddy/images/final/01_MAIN_whitebg_with_carry_bag.png",
+      "repo_path": "listing-images/grill-caddy-20260723-initial-upload/01_MAIN_whitebg_with_carry_bag.png",
+      "cdn_url": "https://cdn.jsdelivr.net/gh/saralau0223/coovoamae-ads-data@main/listing-images/grill-caddy-20260723-initial-upload/01_MAIN_whitebg_with_carry_bag.png",
+      "sha256": "d3b20d2ef55ee5d24c258b59079194d7a8f96106b062400899e0b33a32dfebf4",
+      "bytes": 821117
+    },
+    {
+      "slot": "PT01",
+      "slot_key": "other_product_image_locator_1",
+      "filename": "02_PT01_carry_bag_included.png",
+      "source_path": "/root/.hermes/shared/product-assets/coovoa-20260723-long-grill-caddy/images/final/02_PT01_carry_bag_included.png",
+      "repo_path": "listing-images/grill-caddy-20260723-initial-upload/02_PT01_carry_bag_included.png",
+      "cdn_url": "https://cdn.jsdelivr.net/gh/saralau0223/coovoamae-ads-data@main/listing-images/grill-caddy-20260723-initial-upload/02_PT01_carry_bag_included.png",
+      "sha256": "d5105eb4d63f37b4da6bf496ba905971b3846d26250b504f1a7db07d15f444e3",
+      "bytes": 5319945
+    },
+    {
+      "slot": "PT02",
+      "slot_key": "other_product_image_locator_2",
+      "filename": "03_PT02_four_baskets.png",
+      "source_path": "/root/.hermes/shared/product-assets/coovoa-20260723-long-grill-caddy/images/final/03_PT02_four_baskets.png",
+      "repo_path": "listing-images/grill-caddy-20260723-initial-upload/03_PT02_four_baskets.png",
+      "cdn_url": "https://cdn.jsdelivr.net/gh/saralau0223/coovoamae-ads-data@main/listing-images/grill-caddy-20260723-initial-upload/03_PT02_four_baskets.png",
+      "sha256": "4c3abfd05b15739116313ecfd91a5d34c0771f68f0f030880c2036616d539d76",
+      "bytes": 5537399
+    },
+    {
+      "slot": "PT03",
+      "slot_key": "other_product_image_locator_3",
+      "filename": "04_PT03_tool_hooks.png",
+      "source_path": "/root/.hermes/shared/product-assets/coovoa-20260723-long-grill-caddy/images/final/04_PT03_tool_hooks.png",
+      "repo_path": "listing-images/grill-caddy-20260723-initial-upload/04_PT03_tool_hooks.png",
+      "cdn_url": "https://cdn.jsdelivr.net/gh/saralau0223/coovoamae-ads-data@main/listing-images/grill-caddy-20260723-initial-upload/04_PT03_tool_hooks.png",
+      "sha256": "dd80bfcbdc1258f7d7be4086c5cc9dea0e1c740c16a7db45cd23b1eeaa7a3920",
+      "bytes": 5248017
+    },
+    {
+      "slot": "PT04",
+      "slot_key": "other_product_image_locator_4",
+      "filename": "05_PT04_outdoor_usage.jpg",
+      "source_path": "/root/.hermes/shared/product-assets/coovoa-20260723-long-grill-caddy/images/final/05_PT04_outdoor_usage.jpg",
+      "repo_path": "listing-images/grill-caddy-20260723-initial-upload/05_PT04_outdoor_usage.jpg",
+      "cdn_url": "https://cdn.jsdelivr.net/gh/saralau0223/coovoamae-ads-data@main/listing-images/grill-caddy-20260723-initial-upload/05_PT04_outdoor_usage.jpg",
+      "sha256": "66d06a1dc4603a1fd0c99f63bae99d5b76fa5287b46b25e564d2ae725f9f551b",
+      "bytes": 2153685
+    },
+    {
+      "slot": "PT05",
+      "slot_key": "other_product_image_locator_5",
+      "filename": "06_PT05_person_hand_use.jpg",
+      "source_path": "/root/.hermes/shared/product-assets/coovoa-20260723-long-grill-caddy/images/final/06_PT05_person_hand_use.jpg",
+      "repo_path": "listing-images/grill-caddy-20260723-initial-upload/06_PT05_person_hand_use.jpg",
+      "cdn_url": "https://cdn.jsdelivr.net/gh/saralau0223/coovoamae-ads-data@main/listing-images/grill-caddy-20260723-initial-upload/06_PT05_person_hand_use.jpg",
+      "sha256": "4da2e4fd563e4feb588fad6ff6b30c9fe8bf4242ba727f8263441b4f1a03eab2",
+      "bytes": 2112083
+    },
+    {
+      "slot": "PT06",
+      "slot_key": "other_product_image_locator_6",
+      "filename": "07_PT06_grill_zone_overview.png",
+      "source_path": "/root/.hermes/shared/product-assets/coovoa-20260723-long-grill-caddy/images/final/07_PT06_grill_zone_overview.png",
+      "repo_path": "listing-images/grill-caddy-20260723-initial-upload/07_PT06_grill_zone_overview.png",
+      "cdn_url": "https://cdn.jsdelivr.net/gh/saralau0223/coovoamae-ads-data@main/listing-images/grill-caddy-20260723-initial-upload/07_PT06_grill_zone_overview.png",
+      "sha256": "bf4e5be4502bca3752c661015faca8ddb37e529298214338987d359ab4150c64",
+      "bytes": 5058462
+    }
+  ],
+  "owner_confirmation": "确认上传 coovoa-20260723-long-grill-caddy 到 伟鹏｜亚马逊 / Amazon US，新建 SKU COOVOA-GRILL-CADDY-BLK-20260723，UPC 760092099510，价格 69.99，销售时间 2026-09-05，按 FBA 标签/发货用途先建 listing，初始可售库存 0，使用这 7 张 final 图片，A+ 暂缓，并接受上述风险提示"
+}
