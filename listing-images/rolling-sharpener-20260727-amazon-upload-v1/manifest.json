@@ -1,0 +1,47 @@
+{
+  "created_at": "2026-07-27T02:09:22Z",
+  "images": [
+    {
+      "bytes": 389374,
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "format": "JPEG",
+      "output_sha256": "313a2e52f8829beed4a41695cfbf1efe66e19c5ee39e87d2df839b9ead9258b7",
+      "repo_path": "listing-images/rolling-sharpener-20260727-amazon-upload-v1/01_MAIN_claim_neutral_open_box.jpg",
+      "slot": "MAIN",
+      "source_path": "/root/.hermes/shared/product-assets/PD-ROLLINGSHARPENER-20260703/images/final/01_MAIN_claim_neutral_open_box_no_angle_readable.png",
+      "source_sha256": "0697172fe1569a4a8fd058c47f2eba5275dfa14a0d21cb201701f658f5f437dd"
+    },
+    {
+      "bytes": 403078,
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "format": "JPEG",
+      "output_sha256": "c5f95c24a54163ba3805e87ab29ee43a0e65188eae03ae57c25c2d77ac104fe5",
+      "repo_path": "listing-images/rolling-sharpener-20260727-amazon-upload-v1/02_PT01_claim_neutral_roller_full_view.jpg",
+      "slot": "PT01",
+      "source_path": "/root/.hermes/shared/product-assets/PD-ROLLINGSHARPENER-20260703/images/final/02_PT01_claim_neutral_roller_full_view_no_angle_readable.png",
+      "source_sha256": "1f18b2c0a2c901d91dfaef76b9b013347e55c73dfdd64eeba1de5682bb2432d1"
+    },
+    {
+      "bytes": 618423,
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "format": "JPEG",
+      "output_sha256": "0f4889a560b3d5bd2cd132444afb466608d3e3e329be31fae8bff74366912aab",
+      "repo_path": "listing-images/rolling-sharpener-20260727-amazon-upload-v1/03_PT02_claim_neutral_in_box.jpg",
+      "slot": "PT02",
+      "source_path": "/root/.hermes/shared/product-assets/PD-ROLLINGSHARPENER-20260703/images/final/03_PT02_claim_neutral_in_box_no_angle_readable.png",
+      "source_sha256": "bd4f891ea3a1a60a36f28e16b2f449bdcb47bd010f53937380499f101e04d483"
+    }
+  ],
+  "project_id": "PD-ROLLINGSHARPENER-20260703",
+  "purpose": "Immutable public image URLs for the exact confirmed Amazon US placeholder listing",
+  "source_manifest_sha256": "3a7ed507ac13b243a7965dfb45d110bb2134dc9a3fb8ba181df5cc801bcb0e30"
+}
