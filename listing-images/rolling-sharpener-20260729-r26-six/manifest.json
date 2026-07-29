@@ -1,0 +1,101 @@
+{
+  "asin": "B0HBPFCBHY",
+  "created_at": "2026-07-29T04:23:58Z",
+  "images": [
+    {
+      "amazon_slot": "MAIN",
+      "bytes": 432553,
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "format": "JPEG",
+      "image_id": "MAIN",
+      "output_sha256": "d1e4d7fb9d08ca4b9a1a1a66fac4cd49222cacdbaa8b677e470af22b96737f19",
+      "repo_path": "listing-images/rolling-sharpener-20260729-r26-six/01_MAIN.jpg",
+      "slot": 1,
+      "source_path": "/root/.hermes/shared/product-assets/PD-ROLLINGSHARPENER-20260703/images/final/r26_owner_scoped_6of6_20260729/01_MAIN.png",
+      "source_sha256": "dc9b19caf73f1f605357ba00c127f54acaca2a5367202947e1efe1e7f65f2a84"
+    },
+    {
+      "amazon_slot": "PT01",
+      "bytes": 583343,
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "format": "JPEG",
+      "image_id": "PT01",
+      "output_sha256": "5c74c83d371d182bcc6a68cab714f7f5dd841e17fc234b023c4f61ba1dc8bdd0",
+      "repo_path": "listing-images/rolling-sharpener-20260729-r26-six/02_PT01.jpg",
+      "slot": 2,
+      "source_path": "/root/.hermes/shared/product-assets/PD-ROLLINGSHARPENER-20260703/images/final/r26_owner_scoped_6of6_20260729/02_DUAL_ANGLE_MARKING_VIEW.png",
+      "source_sha256": "36c70d1d3dc4cba877f9cca8b97ce7656193896e401fd008570691d226bf71f8"
+    },
+    {
+      "amazon_slot": "PT02",
+      "bytes": 398083,
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "format": "JPEG",
+      "image_id": "PT02",
+      "output_sha256": "4cb6ebb8fab41c19a2ee4a5dd0a7a55ca567e02f2dc56c8812767fd365881f8c",
+      "repo_path": "listing-images/rolling-sharpener-20260729-r26-six/03_PT02.jpg",
+      "slot": 3,
+      "source_path": "/root/.hermes/shared/product-assets/PD-ROLLINGSHARPENER-20260703/images/final/r26_owner_scoped_6of6_20260729/03_20_DEGREE_PRODUCT_VIEW.png",
+      "source_sha256": "095331dd43cbb59829c2a3249ef1a17f52bc08b9ceeaf72e0e6bdf5c4e5c4927"
+    },
+    {
+      "amazon_slot": "PT03",
+      "bytes": 708556,
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "format": "JPEG",
+      "image_id": "PT03",
+      "output_sha256": "b80b5384f3e93828d13832f739d155f3f5fc2754d26a2085581b14b45103b84d",
+      "repo_path": "listing-images/rolling-sharpener-20260729-r26-six/04_PT03.jpg",
+      "slot": 4,
+      "source_path": "/root/.hermes/shared/product-assets/PD-ROLLINGSHARPENER-20260703/images/final/r26_owner_scoped_6of6_20260729/04_ROLLER_GUIDE_DETAIL.png",
+      "source_sha256": "bb5ba25ec4a8c0dc1959a58027b96ef629065d04680257936fda64e5d6d42949"
+    },
+    {
+      "amazon_slot": "PT04",
+      "bytes": 882572,
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "format": "JPEG",
+      "image_id": "PT04",
+      "output_sha256": "e749e3e6e527624010b0978c41fbccddc534f8f56969c35bdeccb1dc2dbe5e55",
+      "repo_path": "listing-images/rolling-sharpener-20260729-r26-six/05_PT04.jpg",
+      "slot": 5,
+      "source_path": "/root/.hermes/shared/product-assets/PD-ROLLINGSHARPENER-20260703/images/final/r26_owner_scoped_6of6_20260729/05_KNIFE_GUIDE_CONTEXT.png",
+      "source_sha256": "c15bb18506c72edc9aa59649afafc4f7a3cd6c28775517c302684240eab8342f"
+    },
+    {
+      "amazon_slot": "PT05",
+      "bytes": 230441,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "format": "JPEG",
+      "image_id": "PT05",
+      "output_sha256": "74fe9286649ed3ced829f21d14bab38eaf2d38016e49bcfc41ae4332b4fd5920",
+      "repo_path": "listing-images/rolling-sharpener-20260729-r26-six/06_PT05.jpg",
+      "slot": 6,
+      "source_path": "/root/.hermes/shared/product-assets/PD-ROLLINGSHARPENER-20260703/images/final/r26_owner_scoped_6of6_20260729/06_KITCHEN_LIFESTYLE.png",
+      "source_sha256": "388fcf7e232598bf7a117271ebfa1924ccf43ddc85d0dc580a68730949dcbbe0"
+    }
+  ],
+  "project_id": "PD-ROLLINGSHARPENER-20260703",
+  "purpose": "Immutable public URLs for Liu Xi-confirmed R26 six-image Amazon listing update",
+  "sku": "COOVOA-ROLLING-SHARPENER-WOOD-20260727",
+  "source_manifest_path": "/root/.hermes/shared/product-assets/PD-ROLLINGSHARPENER-20260703/manifest/listing_image_manifest.json",
+  "source_manifest_sha256": "be8f8579162b8dac14977add2cc585b66b644a584bd6a173fc6ae21c979bac30"
+}
