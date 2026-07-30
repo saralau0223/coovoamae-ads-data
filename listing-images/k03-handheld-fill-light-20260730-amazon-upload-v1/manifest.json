@@ -1,0 +1,64 @@
+{
+  "schema": "coovoamae_public_listing_images_v1",
+  "project_id": "PD-K03-HANDHELD-FILL-LIGHT-20260727",
+  "marketplace": "Amazon US",
+  "target_store": "伟鹏｜亚马逊",
+  "owner_confirmed_public_hosting": true,
+  "source_manifest_sha256": "9933cbfdb33377c5c28f08c85dbd1c1ac13268ebd147878ea19de30b931d6696",
+  "files": [
+    {
+      "slot": "MAIN",
+      "filename": "01_MAIN_K03_fill_light.png",
+      "sha256": "fa9c4600db0e0ac8bfc631256072c2c2622fc9e52706d6bca573cb9b6962abd3",
+      "bytes": 3124309
+    },
+    {
+      "slot": "PT01",
+      "filename": "02_PT01.png",
+      "sha256": "fdf802c1d8395081b109892d46fdc16bf6ff31ce23e7d259cad4d7bbf4f5088a",
+      "bytes": 4313820
+    },
+    {
+      "slot": "PT02",
+      "filename": "03_PT02.png",
+      "sha256": "aab0bbe27a3a7a0807e5b7567b281a83ac57b5da4f97a95bb58f8d6788609f60",
+      "bytes": 2717353
+    },
+    {
+      "slot": "PT03",
+      "filename": "04_PT03.png",
+      "sha256": "976cdd735ada98e5d528d767e2f90cfcccae9352949c8f9ccc0e8d9e43e80c9c",
+      "bytes": 4131119
+    },
+    {
+      "slot": "PT04",
+      "filename": "05_PT04.png",
+      "sha256": "d42be445786c58700bb6bce5d6442df1ecdc8c7ea0f443212027bae13b7dd89f",
+      "bytes": 3555379
+    },
+    {
+      "slot": "PT05",
+      "filename": "06_PT05.png",
+      "sha256": "6ef4dfa0e8db30f35efb34a08d2dec868c3a46064b182442c472ee945937504b",
+      "bytes": 4895686
+    },
+    {
+      "slot": "PT06",
+      "filename": "07_PT06.png",
+      "sha256": "5d65fdf7172a2347b2f5b94b05bace969e3114fa25e6705e1a5c5c31ba2fa72b",
+      "bytes": 4851952
+    },
+    {
+      "slot": "PT07",
+      "filename": "08_PT07.jpg",
+      "sha256": "7a45c75d61eefc298a74afd3d778f96fccd5146796b24c995f1752bcbadab5ff",
+      "bytes": 1777599
+    },
+    {
+      "slot": "PT08",
+      "filename": "09_PT08.jpg",
+      "sha256": "451dfbb5845a9f693e861a1d1d53ae28de96fc0660a999a4433a1ccf9d229797",
+      "bytes": 1994402
+    }
+  ]
+}
